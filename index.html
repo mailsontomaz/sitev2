@@ -1,0 +1,530 @@
+<!-- @dsCard group="Landing" viewport="1280x900" subtitle="Site institucional do Mailson" -->
+<!-- @startingPoint section="Sites" subtitle="Landing page institucional" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mailson Tomaz · Consultor de CRM & Automação</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  body { background: var(--ink-50); overflow-x: hidden; }
+
+  /* === SHELL === */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    background: rgba(245,242,234,0.7);
+    border-bottom: 1px solid rgba(10,10,10,0.08);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 16px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-weight: 700; }
+  .logo-mark {
+    width: 36px; height: 36px; background: var(--ink-1000); color: var(--ink-50);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-weight: 700; font-size: 14px;
+    position: relative;
+  }
+  .logo-mark::after { content: ""; position: absolute; left: 4px; right: 4px; bottom: 4px; height: 2px; background: var(--green-500); }
+  .logo-text { font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .logo-text span { color: var(--ink-500); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+    color: var(--ink-1000); text-decoration: none;
+    transition: var(--t-hover);
+  }
+  .nav-links a:hover { color: var(--green-700); }
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+
+  /* === HERO === */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 80px 32px 120px;
+    background: var(--ink-50);
+  }
+  .hero-blob-1 {
+    position: absolute; left: -160px; top: 40px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #00FF88 0%, transparent 60%);
+    filter: blur(70px); opacity: 0.55;
+    pointer-events: none;
+  }
+  .hero-blob-2 {
+    position: absolute; right: -120px; bottom: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #00FF88 0%, transparent 65%);
+    filter: blur(80px); opacity: 0.4;
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center;
+  }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-1000);
+    border-left: 6px solid var(--green-500); padding-left: 12px;
+    margin-bottom: 28px;
+  }
+  .kicker::before { content: ""; width: 8px; height: 8px; background: var(--ink-1000); border-radius: 50%; }
+  h1.hero-title {
+    font-family: var(--font-sans);
+    font-size: clamp(56px, 8vw, 112px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--ink-1000);
+    margin: 0 0 28px;
+  }
+  h1 .accent { color: var(--ink-1000); position: relative; display: inline-block; }
+  h1 .accent::after { content: ""; position: absolute; left: -4px; right: -4px; bottom: 14px; height: 12px; background: var(--green-500); z-index: -1; }
+  .hero-sub {
+    font-family: var(--font-sans); font-size: 19px; line-height: 1.55;
+    color: var(--ink-700); max-width: 540px; margin: 0 0 36px;
+  }
+  .hero-cta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn {
+    font-family: var(--font-sans); font-weight: 700; font-size: 16px;
+    padding: 14px 24px; border: 1.5px solid var(--ink-1000); border-radius: 2px;
+    cursor: pointer; transition: var(--t-hover); text-decoration: none;
+    color: var(--ink-1000);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary { background: var(--green-500); color: var(--ink-1000); box-shadow: 4px 4px 0 var(--ink-1000); }
+  .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink-1000); }
+  .btn-secondary { background: var(--ink-50); color: var(--ink-1000); box-shadow: 4px 4px 0 var(--ink-1000); }
+  .btn-secondary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink-1000); }
+  .btn-ghost { background: transparent; border: 1.5px solid transparent; box-shadow: none; padding: 14px 8px; }
+  .btn-ghost:hover { color: var(--green-700); }
+
+  .hero-proof {
+    display: flex; gap: 32px; align-items: center;
+    font-family: var(--font-mono); font-size: 12px; color: var(--ink-600);
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .hero-proof .num { font-size: 28px; font-weight: 700; color: var(--ink-1000); letter-spacing: -0.03em; text-transform: none; }
+
+  /* Hero right — glass stack */
+  .glass-stack { position: relative; height: 540px; }
+  .glass-card {
+    position: absolute;
+    backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%);
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 20px;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.5);
+    padding: 24px 28px;
+    font-family: var(--font-sans);
+  }
+  .gc-1 { top: 0; right: 0; width: 320px; }
+  .gc-2 { top: 200px; left: 0; width: 260px; }
+  .gc-3 { bottom: 0; right: 40px; width: 360px; }
+  .gc-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-700); }
+  .gc-value { font-size: 56px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 8px 0 4px; color: var(--ink-1000); }
+  .gc-value .delta { font-family: var(--font-mono); font-size: 16px; font-weight: 600; color: var(--green-700); margin-left: 8px; }
+  .gc-foot { font-size: 12px; color: var(--ink-700); font-family: var(--font-mono); }
+
+  .gc-3-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .gc-3-list .row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .gc-3-list .dot { width: 8px; height: 8px; background: var(--green-500); flex-shrink: 0; }
+  .gc-3-list .name { flex: 1; color: var(--ink-1000); font-weight: 500; }
+  .gc-3-list .stage { font-family: var(--font-mono); font-size: 11px; color: var(--ink-600); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* === BAR — trusted by === */
+  .trust {
+    background: var(--ink-1000); color: var(--ink-300);
+    padding: 24px 32px;
+    border-top: 4px solid var(--green-500);
+  }
+  .trust-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .trust-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-500); white-space: nowrap; }
+  .trust-logos { display: flex; gap: 36px; flex-wrap: wrap; }
+  .trust-logos span { font-family: var(--font-sans); font-weight: 700; font-size: 18px; color: var(--ink-200); letter-spacing: -0.02em; }
+
+  /* === SERVICES === */
+  .section { padding: 120px 32px; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-head { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: end; margin-bottom: 64px; }
+  .section-eye { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-600); margin-bottom: 12px; }
+  .section-eye::before { content: "// "; color: var(--green-700); }
+  h2.section-title { font-size: clamp(40px, 5vw, 72px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; color: var(--ink-1000); margin: 0; }
+  .section-lead { font-size: 18px; line-height: 1.55; color: var(--ink-700); max-width: 520px; margin: 0; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .svc-card {
+    background: var(--ink-50); padding: 32px 28px;
+    border: 1.5px solid var(--ink-1000);
+    box-shadow: 4px 4px 0 var(--ink-1000);
+    display: flex; flex-direction: column; gap: 18px;
+    min-height: 320px; transition: var(--t-hover);
+  }
+  .svc-card:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 var(--ink-1000); }
+  .svc-card.feat { background: var(--ink-1000); color: var(--ink-50); box-shadow: 4px 4px 0 var(--green-500); }
+  .svc-card.feat:hover { box-shadow: 7px 7px 0 var(--green-500); }
+  .svc-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; opacity: 0.7; }
+  .svc-title { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .svc-desc { font-size: 14px; line-height: 1.55; opacity: 0.85; flex: 1; }
+  .svc-tools { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tool {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 8px; border: 1px solid currentColor; opacity: 0.85;
+  }
+
+  /* === KPI BAND === */
+  .kpi-band { background: var(--ink-1000); color: var(--ink-50); position: relative; overflow: hidden; }
+  .kpi-band::before { content: ""; position: absolute; left: 30%; top: -120px; width: 600px; height: 600px;
+    background: radial-gradient(circle, #00FF88 0%, transparent 60%); filter: blur(80px); opacity: 0.4; }
+  .kpi-inner { max-width: 1280px; margin: 0 auto; padding: 100px 32px; position: relative; z-index: 1; }
+  .kpi-eye { font-family: var(--font-mono); color: var(--green-500); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+  .kpi-quote { font-size: clamp(36px, 4.5vw, 64px); font-weight: 900; line-height: 1; letter-spacing: -0.04em; max-width: 1000px; margin: 0 0 56px; text-wrap: balance; }
+  .kpi-quote em { font-style: normal; color: var(--green-500); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.15); }
+  .kpi { padding: 32px 24px 0; border-right: 1px solid rgba(255,255,255,0.15); }
+  .kpi:last-child { border-right: none; }
+  .kpi-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-400); margin-bottom: 12px; }
+  .kpi-label::before { content: "// "; color: var(--green-500); }
+  .kpi-value { font-family: var(--font-mono); font-size: 56px; font-weight: 500; letter-spacing: -0.04em; line-height: 1; color: var(--ink-50); }
+  .kpi-value span { color: var(--green-500); }
+
+  /* === PROCESS === */
+  .process { background: var(--ink-50); }
+  .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--ink-1000); background: var(--ink-1000); margin-top: 40px; }
+  .step { padding: 36px 32px; background: var(--ink-50); display: flex; flex-direction: column; gap: 14px; min-height: 220px; position: relative; }
+  .step-n { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-1000); }
+  .step-n strong { color: var(--green-700); }
+  .step-title { font-size: 26px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .step-desc { font-size: 14px; line-height: 1.55; color: var(--ink-700); }
+  .step-meta { margin-top: auto; font-family: var(--font-mono); font-size: 11px; color: var(--ink-1000); letter-spacing: 0.04em; }
+
+  /* === FAQ === */
+  .faq { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; }
+  .faq-list { display: flex; flex-direction: column; }
+  details { border-top: 1.5px solid var(--ink-1000); padding: 24px 0; }
+  details:last-child { border-bottom: 1.5px solid var(--ink-1000); }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: var(--font-sans); font-size: 19px; font-weight: 700; cursor: pointer; list-style: none; color: var(--ink-1000); letter-spacing: -0.02em; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--font-mono); font-size: 26px; font-weight: 400; transition: transform 240ms var(--ease-out-quart); }
+  details[open] summary::after { transform: rotate(45deg); color: var(--green-700); }
+  details p { padding-top: 12px; font-size: 15px; line-height: 1.55; color: var(--ink-700); max-width: 640px; }
+
+  /* === CONTACT === */
+  .contact { background: var(--ink-1000); color: var(--ink-50); }
+  .contact-inner { max-width: 1280px; margin: 0 auto; padding: 100px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .contact h2 { font-size: clamp(48px, 6vw, 88px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; color: var(--ink-50); margin: 0 0 24px; }
+  .contact .accent2 { color: var(--green-500); }
+  .contact-lead { font-size: 18px; line-height: 1.55; color: var(--ink-300); max-width: 440px; }
+  .contact-meta { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13px; color: var(--ink-300); }
+  .contact-meta strong { color: var(--green-500); }
+  .form { background: var(--ink-50); color: var(--ink-1000); padding: 32px; border: 1.5px solid var(--ink-50); box-shadow: 6px 6px 0 var(--green-500); display: flex; flex-direction: column; gap: 14px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-600); }
+  .field input, .field select, .field textarea {
+    background: var(--paper); border: 1.5px solid var(--ink-1000); border-radius: 2px;
+    padding: 12px 14px; font-family: var(--font-sans); font-size: 15px; color: var(--ink-1000);
+    outline: none; transition: var(--t-hover);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { box-shadow: 3px 3px 0 var(--ink-1000); }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* === FOOTER === */
+  footer { background: var(--ink-1000); color: var(--ink-300); border-top: 1px solid rgba(255,255,255,0.1); padding: 40px 32px; }
+  .foot-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
+  .foot-inner .green { color: var(--green-500); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" style="text-decoration:none;color:var(--ink-1000)">
+      <span class="logo-mark">MT</span>
+      <span class="logo-text">Mailson Tomaz <span>· CRM</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#processo">Processo</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost">Casos</a>
+      <a href="#contato" class="btn btn-primary">Agendar diagnóstico</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">Consultoria · 2026</div>
+      <h1 class="hero-title">CRM que <span class="accent">vende</span>.<br/>Sem floreio.</h1>
+      <p class="hero-sub">Implemento HubSpot, RD Station e ferramentas de automação para marcas B2C e e-commerce que precisam parar de perder lead. Diagnóstico em 14 dias.</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn btn-primary">Agendar diagnóstico
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#resultados" class="btn btn-ghost">Ver resultados →</a>
+      </div>
+      <div class="hero-proof">
+        <div><div class="num">+47</div>projetos entregues</div>
+        <div style="width:1px;height:36px;background:var(--ink-300)"></div>
+        <div><div class="num">12 anos</div>de operação</div>
+        <div style="width:1px;height:36px;background:var(--ink-300)"></div>
+        <div><div class="num">R$ 18M</div>de receita influenciada</div>
+      </div>
+    </div>
+    <div class="glass-stack">
+      <div class="glass-card gc-1">
+        <div class="gc-label">// MQL no mês</div>
+        <div class="gc-value">2.847 <span class="delta">↑ 34%</span></div>
+        <div class="gc-foot">vs. trimestre anterior</div>
+      </div>
+      <div class="glass-card gc-2">
+        <div class="gc-label">// Conv. funil</div>
+        <div class="gc-value">6,2%</div>
+        <div class="gc-foot">benchmark 3,1%</div>
+      </div>
+      <div class="glass-card gc-3">
+        <div class="gc-label">// Cadência ativa · 12 leads</div>
+        <div class="gc-3-list">
+          <div class="row"><span class="dot"></span><span class="name">Ana Silva · Loja B2C</span><span class="stage">MQL</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Carlos Pereira · E-commerce</span><span class="stage">SQL</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Renata Lima · D2C</span><span class="stage">Opp</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Pedro Costa · Marketplace</span><span class="stage">MQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-label">// Clientes que confiaram em 2024–2025</div>
+    <div class="trust-logos">
+      <span>EnvioFácil</span><span>Casa Verde</span><span>Loja Norte</span><span>D2C Brasil</span><span>FastShop B2C</span><span>Vendoo</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="servicos">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="section-eye">Serviços</div>
+        <h2 class="section-title">Três frentes.<br/>Uma operação.</h2>
+      </div>
+      <p class="section-lead">Não vendo workshop nem deck bonito. Vendo operação de CRM rodando, integrada e medida — e te ensino a manter.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-num">// 01</div>
+        <div class="svc-title">Implementação<br/>de CRM</div>
+        <div class="svc-desc">HubSpot, RD Station ou Pipedrive instalados, integrados com seu site, e-commerce e WhatsApp. Pipeline desenhado para o seu funil real, não o do template.</div>
+        <div class="svc-tools">
+          <span class="tool">HubSpot</span><span class="tool">RD</span><span class="tool">Pipedrive</span>
+        </div>
+      </div>
+      <div class="svc-card feat">
+        <div class="svc-num">// 02 · mais procurado</div>
+        <div class="svc-title">Automação<br/>de marketing</div>
+        <div class="svc-desc">Fluxos de nutrição, recuperação de carrinho, reativação e onboarding. Régua de relacionamento que para de perder lead em cada etapa do funil.</div>
+        <div class="svc-tools">
+          <span class="tool">E-mail</span><span class="tool">WhatsApp</span><span class="tool">SMS</span><span class="tool">Push</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">// 03</div>
+        <div class="svc-title">Operação<br/>contínua</div>
+        <div class="svc-desc">Time terceirizado de CRM rodando seu motor por mês. Você foca em produto e mídia, eu cuido da máquina de receita do meio para o fim.</div>
+        <div class="svc-tools">
+          <span class="tool">CRM Ops</span><span class="tool">Dataviz</span><span class="tool">A/B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI BAND -->
+<section class="kpi-band" id="resultados">
+  <div class="kpi-inner">
+    <div class="kpi-eye">// Resultados — média dos últimos 12 meses</div>
+    <h2 class="kpi-quote">O cliente médio sai de <em>3,1% de conversão</em> e chega em <em>6,2%</em> em 90 dias. Sem rebrand, sem reinventar nada.</h2>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Conversão</div>
+        <div class="kpi-value">+<span>97</span>%</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Lead → Venda</div>
+        <div class="kpi-value">+<span>34</span>%</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">CAC</div>
+        <div class="kpi-value">−<span>21</span>%</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">LTV/CAC</div>
+        <div class="kpi-value">4,<span>1</span>×</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process" id="processo">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="section-eye">Processo</div>
+        <h2 class="section-title">Quatro etapas.<br/>Sem surpresas.</h2>
+      </div>
+      <p class="section-lead">Diagnóstico em 14 dias, instalação em 30, operação em 60. Tudo documentado, tudo medido, tudo entregue em prazos firmes.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step">
+        <div class="step-n"><strong>// 01</strong> · Semana 1–2</div>
+        <div class="step-title">Diagnóstico do funil</div>
+        <div class="step-desc">Auditoria do CRM atual, mapeamento de etapas, entrevistas com vendas e marketing. Saio com lista das 3 maiores fugas.</div>
+        <div class="step-meta">Entregável: relatório + workshop</div>
+      </div>
+      <div class="step">
+        <div class="step-n"><strong>// 02</strong> · Semana 3–6</div>
+        <div class="step-title">Implementação técnica</div>
+        <div class="step-desc">Configuração da ferramenta, integrações, importação de base, pipelines, lead scoring e estrutura de propriedades.</div>
+        <div class="step-meta">Entregável: CRM rodando + docs</div>
+      </div>
+      <div class="step">
+        <div class="step-n"><strong>// 03</strong> · Semana 7–9</div>
+        <div class="step-title">Cadências e automações</div>
+        <div class="step-desc">Fluxos de nutrição, régua de recuperação, mensagens transacionais e A/B tests iniciais. Time treinado para operar.</div>
+        <div class="step-meta">Entregável: 8–12 automações ativas</div>
+      </div>
+      <div class="step">
+        <div class="step-n"><strong>// 04</strong> · Semana 10–12</div>
+        <div class="step-title">Operação e tuning</div>
+        <div class="step-desc">Acompanhamento semanal de KPIs, ajustes nas réguas, ampliação para novas frentes. Handover para time interno ou meu squad.</div>
+        <div class="step-meta">Entregável: dashboard + ritual</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-inner">
+    <div class="faq">
+      <div>
+        <div class="section-eye">FAQ</div>
+        <h2 class="section-title">Antes de marcar.</h2>
+        <p class="section-lead" style="margin-top:24px">As perguntas mais comuns antes do primeiro papo. Se não respondi a sua, manda no formulário.</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Vocês são uma agência ou consultoria?</summary>
+          <p>Consultoria solo com squad terceirizado quando precisa. Você fala comigo, não com SDR. Para operação contínua, monto time dedicado de 2 a 4 pessoas.</p>
+        </details>
+        <details>
+          <summary>Quanto custa e como funciona o pagamento?</summary>
+          <p>Projetos a partir de R$ 28k para implementação fechada, ou R$ 8–18k/mês para operação contínua. Pagamento em parcelas vinculadas a entregáveis.</p>
+        </details>
+        <details>
+          <summary>Trabalham com qual ferramenta?</summary>
+          <p>HubSpot (parceiro Gold), RD Station, Pipedrive e ActiveCampaign. Para automação avançada uso Make, n8n e Zapier. Para e-commerce, conecto Shopify, VTEX e Nuvemshop.</p>
+        </details>
+        <details>
+          <summary>Garantem resultado?</summary>
+          <p>Garanto entrega técnica e operação rodando. Resultado depende de mídia, oferta e produto — mas o cliente médio sai com 30 a 90% de aumento de conversão de funil em 90 dias.</p>
+        </details>
+        <details>
+          <summary>Atendem fora do Brasil?</summary>
+          <p>Sim, em PT e ES. Já operei projetos em Portugal, México e Chile. Não atendo em inglês.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+  <div class="contact-inner">
+    <div>
+      <div class="kicker" style="color:var(--ink-50);border-left-color:var(--green-500)">Contato · 30 min</div>
+      <h2>Agenda um<br/><span class="accent2">diagnóstico</span><br/>gratuito.</h2>
+      <p class="contact-lead">Em 30 minutos te entrego três prioridades concretas para os próximos 90 dias do seu CRM. Sem comprometimento, sem pitch.</p>
+      <div class="contact-meta">
+        <div><strong>// E-MAIL</strong>  oi@mailsontomaz.com.br</div>
+        <div><strong>// WPP</strong>     +55 11 9 9999-9999</div>
+        <div><strong>// SP/BR</strong>   Online · GMT-3</div>
+      </div>
+    </div>
+    <form class="form" onsubmit="event.preventDefault();alert('Demo — formulário não envia.')">
+      <div class="field">
+        <label>Empresa</label>
+        <input type="text" placeholder="Razão social" value="Casa Verde Decor" required/>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Seu nome</label>
+          <input type="text" placeholder="Nome completo" value="Ana Silva"/>
+        </div>
+        <div class="field">
+          <label>E-mail</label>
+          <input type="email" placeholder="voce@empresa.com.br" value="ana@casaverde.com.br"/>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Faturamento mensal</label>
+          <select>
+            <option>Até R$ 100k</option>
+            <option selected>R$ 100k – 500k</option>
+            <option>R$ 500k – 2M</option>
+            <option>Acima de R$ 2M</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Ferramenta atual</label>
+          <select>
+            <option>Sem CRM</option>
+            <option selected>RD Station</option>
+            <option>HubSpot</option>
+            <option>Outro</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>O que está travando o funil?</label>
+        <textarea rows="3" placeholder="Em poucas linhas...">Estou perdendo lead entre o cadastro e a primeira compra. Quero entender onde está o vazamento.</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:8px;justify-content:center">
+        Quero o diagnóstico
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div>© 2026 <span style="color:var(--ink-50)">MAILSON TOMAZ</span> · CONSULTORIA</div>
+    <div><span class="green">//</span> oi@mailsontomaz.com.br</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+/* Sombras — Brutalist hard + Glass float */
+:root {
+  /* Brutalist — hard offset shadow, sem blur */
+  --shadow-brutal-sm:  3px 3px 0 var(--fg);
+  --shadow-brutal:     4px 4px 0 var(--fg);
+  --shadow-brutal-lg:  6px 6px 0 var(--fg);
+  --shadow-brutal-xl:  10px 10px 0 var(--fg);
+
+  /* Hover dos brutalist */
+  --shadow-brutal-hover: 6px 6px 0 var(--fg);
+  --shadow-brutal-hover-lg: 10px 10px 0 var(--fg);
+
+  /* Glass — float natural */
+  --shadow-glass-sm: 0 10px 30px -10px rgba(0, 0, 0, 0.18);
+  --shadow-glass:    0 30px 80px -20px rgba(0, 0, 0, 0.35);
+  --shadow-glass-lg: 0 50px 120px -30px rgba(0, 0, 0, 0.45);
+
+  /* Inset highlight para glass */
+  --shadow-glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  /* Glow neon — usado COM PARCIMÔNIA */
+  --shadow-neon: 0 0 0 1px var(--green-500), 0 0 24px rgba(0, 255, 136, 0.45);
+}

@@ -1,0 +1,44 @@
+/* Tipografia — Geist + Geist Mono via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Famílias */
+  --font-sans: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-display: var(--font-sans);
+
+  /* Pesos */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* Escala — base 16px, ratio 1.333 (perfect fourth) */
+  --fs-xs: 11px;       /* mono labels, meta */
+  --fs-sm: 13px;       /* captions, helpers */
+  --fs-base: 16px;     /* body */
+  --fs-md: 18px;       /* large body */
+  --fs-lg: 22px;       /* h6 / subtitle */
+  --fs-xl: 28px;       /* h5 */
+  --fs-2xl: 36px;      /* h4 */
+  --fs-3xl: 48px;      /* h3 */
+  --fs-4xl: 64px;      /* h2 */
+  --fs-5xl: clamp(72px, 9vw, 120px);   /* h1 display */
+  --fs-6xl: clamp(96px, 14vw, 200px);  /* hero brutalist */
+
+  /* Line heights */
+  --lh-tight: 0.92;
+  --lh-snug: 1.1;
+  --lh-normal: 1.35;
+  --lh-body: 1.55;
+  --lh-loose: 1.7;
+
+  /* Tracking */
+  --ls-tight: -0.04em;
+  --ls-snug: -0.02em;
+  --ls-normal: 0em;
+  --ls-wide: 0.04em;
+  --ls-mono-label: 0.08em;
+}

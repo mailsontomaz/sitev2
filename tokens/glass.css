@@ -1,0 +1,17 @@
+/* Glass — Glassmorphism intensidade 70 */
+:root {
+  --glass-blur:        20px;
+  --glass-blur-strong: 32px;
+  --glass-blur-subtle: 10px;
+  --glass-saturate:    140%;
+
+  --glass-bg-light:        rgba(255, 255, 255, 0.55);
+  --glass-bg-light-strong: rgba(255, 255, 255, 0.75);
+  --glass-bg-dark:         rgba(20, 20, 20, 0.45);
+  --glass-bg-dark-strong:  rgba(20, 20, 20, 0.70);
+
+  --glass-border-light: 1px solid rgba(255, 255, 255, 0.7);
+  --glass-border-dark:  1px solid rgba(255, 255, 255, 0.08);
+
+  --glass-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}

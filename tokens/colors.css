@@ -1,0 +1,83 @@
+/* Cores — Brutalist + Neon */
+:root {
+  /* === Base === */
+  --ink-1000: #0A0A0A;    /* preto rico — fundo dark */
+  --ink-900:  #141414;
+  --ink-800:  #1F1F1F;
+  --ink-700:  #2A2A2A;
+  --ink-600:  #404040;
+  --ink-500:  #6B6B6B;
+  --ink-400:  #9A9A9A;
+  --ink-300:  #BFBFBF;
+  --ink-200:  #DDD9D0;
+  --ink-100:  #ECE8DE;
+  --ink-50:   #F5F2EA;    /* creme — fundo light (off-white) */
+  --paper:    #FFFFFF;    /* branco puro — superfícies elevadas */
+
+  /* === Verde neon — herói === */
+  --green-50:  #E6FFF1;
+  --green-100: #B8FFD9;
+  --green-200: #80FFBE;
+  --green-300: #4DFFA5;
+  --green-400: #1FFF93;
+  --green-500: #00FF88;   /* HERO */
+  --green-600: #00CC6D;
+  --green-700: #009953;
+  --green-800: #006638;
+  --green-900: #00331C;
+
+  /* === Semantic — Light theme === */
+  --bg:               var(--ink-50);
+  --bg-elevated:      var(--paper);
+  --bg-sunken:        var(--ink-100);
+  --surface-glass:    rgba(255, 255, 255, 0.55);
+  --surface-glass-strong: rgba(255, 255, 255, 0.75);
+
+  --fg:               var(--ink-1000);
+  --fg-muted:         var(--ink-600);
+  --fg-subtle:        var(--ink-500);
+  --fg-on-accent:     var(--ink-1000);
+  --fg-inverse:       var(--ink-50);
+
+  --border:           rgba(10, 10, 10, 0.10);
+  --border-strong:    rgba(10, 10, 10, 0.25);
+  --border-glass:     rgba(255, 255, 255, 0.7);
+
+  --accent:           var(--green-500);
+  --accent-hover:     var(--green-400);
+  --accent-press:     var(--green-600);
+  --accent-soft:      var(--green-100);
+
+  /* Status — usados com cautela; o sistema é monocromático */
+  --success: var(--green-600);
+  --warning: #E8B600;
+  --danger:  #E5484D;
+  --info:    var(--ink-700);
+}
+
+/* === Dark theme === */
+[data-theme="dark"] {
+  --bg:               var(--ink-1000);
+  --bg-elevated:      var(--ink-900);
+  --bg-sunken:        #050505;
+  --surface-glass:    rgba(20, 20, 20, 0.45);
+  --surface-glass-strong: rgba(20, 20, 20, 0.70);
+
+  --fg:               var(--ink-50);
+  --fg-muted:         var(--ink-300);
+  --fg-subtle:        var(--ink-400);
+  --fg-on-accent:     var(--ink-1000);
+  --fg-inverse:       var(--ink-1000);
+
+  --border:           rgba(255, 255, 255, 0.10);
+  --border-strong:    rgba(255, 255, 255, 0.22);
+  --border-glass:     rgba(255, 255, 255, 0.08);
+
+  --accent:           var(--green-500);
+  --accent-hover:     var(--green-300);
+  --accent-press:     var(--green-600);
+  --accent-soft:      rgba(0, 255, 136, 0.12);
+
+  --warning: #FFC832;
+  --danger:  #FF6166;
+}
