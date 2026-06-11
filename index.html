@@ -23,13 +23,14 @@
     display: flex; align-items: center; justify-content: space-between; gap: 24px;
   }
   .logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-weight: 700; }
-  .logo-mark {
-    width: 36px; height: 36px; background: var(--ink-1000); color: var(--ink-50);
-    display: inline-flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono); font-weight: 700; font-size: 14px;
-    position: relative;
+  .logo-symbol {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
-  .logo-mark::after { content: ""; position: absolute; left: 4px; right: 4px; bottom: 4px; height: 2px; background: var(--green-500); }
   .logo-text { font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
   .logo-text span { color: var(--ink-500); }
   .nav-links { display: flex; gap: 28px; }
@@ -276,7 +277,14 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="logo" style="text-decoration:none;color:var(--ink-1000)">
-      <span class="logo-mark">MT</span>
+      <svg class="logo-symbol" viewBox="0 0 100 100" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke-width="8" stroke-linecap="butt" fill="none">
+          <path d="M90 24 A66 66 0 0 1 24 90" stroke="var(--ink-1000)"/>
+          <path d="M68 24 A44 44 0 0 1 24 68" stroke="var(--ink-1000)"/>
+          <path d="M46 24 A22 22 0 0 1 24 46" stroke="var(--green-500)"/>
+        </g>
+        <circle cx="24" cy="24" r="9" fill="var(--green-500)" stroke="var(--ink-1000)" stroke-width="2.5"/>
+      </svg>
       <span class="logo-text">Mailson Tomaz <span>· CRM</span></span>
     </a>
     <div class="nav-links">
