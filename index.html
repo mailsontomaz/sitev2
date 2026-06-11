@@ -141,6 +141,7 @@
     letter-spacing: 0.04em; text-transform: uppercase;
   }
   .hero-proof .num { font-size: 28px; font-weight: 700; color: var(--ink-1000); letter-spacing: -0.03em; text-transform: none; }
+  .hero-proof .divider { width: 1px; height: 36px; background: var(--ink-300); }
 
   /* Hero right — glass stack */
   .glass-stack { position: relative; height: 540px; }
@@ -317,6 +318,59 @@
   footer { background: var(--ink-1000); color: var(--ink-300); border-top: 1px solid rgba(255,255,255,0.1); padding: 40px 32px; }
   .foot-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
   .foot-inner .green { color: var(--green-500); }
+
+  /* === RESPONSIVIDADE (MOBILE & TABLET) === */
+  @media (max-width: 1023px) {
+    .section { padding: 80px 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-cta { justify-content: center; }
+    .hero-proof { justify-content: center; }
+    .glass-stack { height: 480px; max-width: 480px; margin: 0 auto; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+    .section-lead { margin-left: auto; margin-right: auto; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq { grid-template-columns: 1fr; gap: 48px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  @media (max-width: 767px) {
+    .section { padding: 60px 16px; }
+    .nav-inner { padding: 12px 16px; }
+    .nav-links { display: none; }
+    .nav-cta .btn-ghost { display: none; }
+    .logo-text span { display: none; }
+    
+    h1.hero-title { font-size: clamp(38px, 8vw, 64px); }
+    .hero-proof { flex-direction: column; gap: 20px; text-align: center; }
+    .hero-proof .divider { display: none; }
+    
+    .glass-stack { height: auto; display: flex; flex-direction: column; gap: 16px; max-width: 100%; }
+    .glass-card { position: static; width: 100% !important; height: auto; }
+    
+    .services-grid { grid-template-columns: 1fr; }
+    
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 16px; }
+    .kpi:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.15); }
+    .kpi:nth-last-child(-n+2) { border-bottom: none; }
+    
+    .process-grid { grid-template-columns: 1fr; gap: 1.5px; }
+    .step { min-height: auto; padding: 28px 24px; }
+    
+    .row2 { grid-template-columns: 1fr; }
+    .form { padding: 24px 20px; }
+    
+    footer { padding: 30px 16px; }
+    .foot-inner { flex-direction: column; gap: 16px; text-align: center; }
+  }
+
+  @media (max-width: 479px) {
+    .kpi-grid { grid-template-columns: 1fr; }
+    .kpi { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .kpi:last-child { border-bottom: none; }
+    .kpi:nth-child(odd) { border-right: none; }
+  }
 </style>
 </head>
 <body>
@@ -372,9 +426,9 @@
       </div>
       <div class="hero-proof">
         <div><div class="num">+47</div>projetos entregues</div>
-        <div style="width:1px;height:36px;background:var(--ink-300)"></div>
+        <div class="divider"></div>
         <div><div class="num">12 anos</div>de operação</div>
-        <div style="width:1px;height:36px;background:var(--ink-300)"></div>
+        <div class="divider"></div>
         <div><div class="num">R$ 18M</div>de receita influenciada</div>
       </div>
     </div>
