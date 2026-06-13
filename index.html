@@ -339,6 +339,27 @@
   footer { background: var(--ink-1000); color: var(--ink-300); border-top: 1px solid rgba(255,255,255,0.1); padding: 40px 32px; }
   .foot-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
   .foot-inner .green { color: var(--green-500); }
+  .foot-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .foot-wordmark {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--ink-50);
+    line-height: 1.0;
+  }
+  .foot-credit {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-400);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 
   /* === RESPONSIVIDADE (MOBILE & TABLET) === */
   @media (max-width: 1023px) {
@@ -386,6 +407,7 @@
     
     footer { padding: 30px 16px; }
     .foot-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .foot-brand { flex-direction: column; gap: 8px; justify-content: center; }
   }
 
   @media (max-width: 479px) {
@@ -706,7 +728,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="foot-inner">
-    <div>© 2026 <span style="color:var(--ink-50)">CADÊNCIA</span> · Por Mailson Tomaz</div>
+    <div class="foot-brand">
+      <span class="foot-wordmark">CADÊNCIA<span style="color:var(--green-500)">_</span></span>
+      <span class="foot-credit">© 2026 · POR MAILSON TOMAZ</span>
+    </div>
     <div><span class="green">//</span> oi@mailsontomaz.com.br</div>
   </div>
 </footer>
