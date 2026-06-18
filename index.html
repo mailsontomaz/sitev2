@@ -195,11 +195,14 @@
     background: var(--ink-1000); color: var(--ink-300);
     padding: 24px 32px;
     border-top: 4px solid var(--green-500);
+    overflow: hidden;
   }
-  .trust-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-  .trust-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-500); white-space: nowrap; }
-  .trust-logos { display: flex; gap: 36px; flex-wrap: wrap; }
-  .trust-logos span { font-family: var(--font-sans); font-weight: 700; font-size: 18px; color: var(--ink-200); letter-spacing: -0.02em; }
+  .trust-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
+  .trust-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-500); white-space: nowrap; flex-shrink: 0; position: relative; z-index: 2; background: var(--ink-1000); padding-right: 20px; }
+  .trust-marquee { overflow: hidden; flex: 1; mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent); }
+  .trust-track { display: flex; gap: 48px; width: max-content; animation: marquee 20s linear infinite; }
+  .trust-track span { font-family: var(--font-sans); font-weight: 700; font-size: 18px; color: var(--ink-200); letter-spacing: -0.02em; white-space: nowrap; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   /* === SERVICES === */
   .section { padding: 120px 32px; }
@@ -463,9 +466,9 @@
   <div class="hero-blob-2"></div>
   <div class="hero-inner">
     <div>
-      <div class="kicker">Consultoria · 2026</div>
+      <div class="kicker">Especialista CRM · 2026</div>
       <h1 class="hero-title">CRM que <span class="accent">vende</span>.<br/>Sem floreio.</h1>
-      <p class="hero-sub">Implemento HubSpot, RD Station e ferramentas de automação para marcas B2C e e-commerce que precisam parar de perder lead. Diagnóstico em 14 dias.</p>
+      <p class="hero-sub">Transformo dados em resultados. Especialista em RD Station com foco em nutrição de leads, réguas de automação e estratégias que aumentam conversão, retêm clientes e reduzem o CAC.</p>
       <div class="hero-cta">
         <a href="#contato" class="btn btn-primary">Agendar diagnóstico
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -473,11 +476,11 @@
         <a href="#resultados" class="btn btn-ghost">Ver resultados →</a>
       </div>
       <div class="hero-proof">
-        <div><div class="num">+47</div>projetos entregues</div>
+        <div><div class="num">+4 anos</div>em automação de marketing</div>
         <div class="divider"></div>
-        <div><div class="num">12 anos</div>de operação</div>
+        <div><div class="num">+10</div>clientes de diferentes segmentos</div>
         <div class="divider"></div>
-        <div><div class="num">R$ 18M</div>de receita influenciada</div>
+        <div><div class="num">+100</div>automações implementadas</div>
       </div>
     </div>
     <div class="glass-stack">
@@ -507,9 +510,11 @@
 <!-- TRUST -->
 <section class="trust">
   <div class="trust-inner">
-    <div class="trust-label">// Clientes que confiaram em 2024–2025</div>
-    <div class="trust-logos">
-      <span>EnvioFácil</span><span>Casa Verde</span><span>Loja Norte</span><span>D2C Brasil</span><span>FastShop B2C</span><span>Vendoo</span>
+    <div class="trust-label">// Clientes atendidos</div>
+    <div class="trust-marquee">
+      <div class="trust-track">
+        <span>Unifor</span><span>Uniredentor</span><span>Grupo Zelo</span><span>Academia Bluefit</span><span>Ford Crasa</span><span>Hotel Gran Mareiro</span><span>Herbal Foods</span><span>INDAC</span><span>Instituto Atlântico</span><span>Unifor</span><span>Uniredentor</span><span>Grupo Zelo</span><span>Academia Bluefit</span><span>Ford Crasa</span><span>Hotel Gran Mareiro</span><span>Herbal Foods</span><span>INDAC</span><span>Instituto Atlântico</span>
+      </div>
     </div>
   </div>
 </section>
@@ -522,31 +527,31 @@
         <div class="section-eye">Serviços</div>
         <h2 class="section-title">Três frentes.<br/>Uma operação.</h2>
       </div>
-      <p class="section-lead">Não vendo workshop nem deck bonito. Vendo operação de CRM rodando, integrada e medida — e te ensino a manter.</p>
+      <p class="section-lead">Estratégias personalizadas de CRM para cada contexto e segmento. Do diagnóstico à operação, com foco em engajamento, conversão e retenção.</p>
     </div>
     <div class="services-grid">
       <div class="svc-card">
         <div class="svc-num">// 01</div>
-        <div class="svc-title">Implementação<br/>de CRM</div>
-        <div class="svc-desc">HubSpot, RD Station ou Pipedrive instalados, integrados com seu site, e-commerce e WhatsApp. Pipeline desenhado para o seu funil real, não o do template.</div>
+        <div class="svc-title">Nutrição<br/>de Leads</div>
+        <div class="svc-desc">Réguas de comunicação automatizadas com foco em engajamento e conversão. E-mail marketing, nutrição e reengajamento — cada etapa do funil coberta com a mensagem certa no momento certo.</div>
         <div class="svc-tools">
-          <span class="tool">HubSpot</span><span class="tool">RD</span><span class="tool">Pipedrive</span>
+          <span class="tool">RD Station</span><span class="tool">E-mail</span><span class="tool">Inbound</span>
         </div>
       </div>
       <div class="svc-card feat">
         <div class="svc-num">// 02 · mais procurado</div>
-        <div class="svc-title">Automação<br/>de marketing</div>
-        <div class="svc-desc">Fluxos de nutrição, recuperação de carrinho, reativação e onboarding. Régua de relacionamento que para de perder lead em cada etapa do funil.</div>
+        <div class="svc-title">Automação<br/>de Marketing</div>
+        <div class="svc-desc">Criação e gestão de fluxos completos de automação no RD Station — da configuração inicial à otimização contínua. Integração de formulários, ferramentas de captura e segmentação inteligente de base.</div>
         <div class="svc-tools">
-          <span class="tool">E-mail</span><span class="tool">WhatsApp</span><span class="tool">SMS</span><span class="tool">Push</span>
+          <span class="tool">RD Station</span><span class="tool">Make</span><span class="tool">Analytics</span>
         </div>
       </div>
       <div class="svc-card">
         <div class="svc-num">// 03</div>
-        <div class="svc-title">Operação<br/>contínua</div>
-        <div class="svc-desc">Time terceirizado de CRM rodando seu motor por mês. Você foca em produto e mídia, eu cuido da máquina de receita do meio para o fim.</div>
+        <div class="svc-title">CRM &<br/>Lead Scoring</div>
+        <div class="svc-desc">Segmentação inteligente de base alinhada ao ICP e ao funil de vendas. Lead scoring para qualificação e priorização de oportunidades. Gestão de jornadas com foco em retenção e aumento do LTV.</div>
         <div class="svc-tools">
-          <span class="tool">CRM Ops</span><span class="tool">Dataviz</span><span class="tool">A/B</span>
+          <span class="tool">CRM</span><span class="tool">Scoring</span><span class="tool">Dados</span>
         </div>
       </div>
     </div>
@@ -568,8 +573,8 @@
   </div>
   <div class="kpi-glass-overlay"></div>
   <div class="kpi-inner">
-    <div class="kpi-eye">// Resultados — média dos últimos 12 meses</div>
-    <h2 class="kpi-quote">O cliente médio sai de <em>3,1% de conversão</em> e chega em <em>6,2%</em> em 90 dias. Sem rebrand, sem reinventar nada.</h2>
+    <div class="kpi-eye">// Resultados — foco em métricas que importam</div>
+    <h2 class="kpi-quote">Acompanhamento de <em>métricas-chave</em> — abertura, cliques, conversão, CAC e ROI — com foco em <em>crescimento sustentável</em>.</h2>
     <div class="kpi-grid">
       <div class="kpi">
         <div class="kpi-label">Conversão</div>
@@ -599,32 +604,32 @@
         <div class="section-eye">Processo</div>
         <h2 class="section-title">Quatro etapas.<br/>Sem surpresas.</h2>
       </div>
-      <p class="section-lead">Diagnóstico em 14 dias, instalação em 30, operação em 60. Tudo documentado, tudo medido, tudo entregue em prazos firmes.</p>
+      <p class="section-lead">Diagnóstico, implementação e otimização contínua. Tudo documentado, tudo medido, com recomendações estratégicas em cada etapa.</p>
     </div>
     <div class="process-grid">
       <div class="step">
         <div class="step-n"><strong>// 01</strong> · Semana 1–2</div>
         <div class="step-title">Diagnóstico do funil</div>
-        <div class="step-desc">Auditoria do CRM atual, mapeamento de etapas, entrevistas com vendas e marketing. Saio com lista das 3 maiores fugas.</div>
-        <div class="step-meta">Entregável: relatório + workshop</div>
+        <div class="step-desc">Auditoria do CRM atual, mapeamento de base e jornadas, análise de métricas-chave. Identifico os pontos de vazamento e oportunidades de conversão.</div>
+        <div class="step-meta">Entregável: relatório + recomendações</div>
       </div>
       <div class="step">
         <div class="step-n"><strong>// 02</strong> · Semana 3–6</div>
-        <div class="step-title">Implementação técnica</div>
-        <div class="step-desc">Configuração da ferramenta, integrações, importação de base, pipelines, lead scoring e estrutura de propriedades.</div>
-        <div class="step-meta">Entregável: CRM rodando + docs</div>
+        <div class="step-title">Configuração e integração</div>
+        <div class="step-desc">Setup do RD Station, integração de formulários e ferramentas de captura, importação de base, lead scoring e segmentação alinhada ao ICP.</div>
+        <div class="step-meta">Entregável: CRM configurado + docs</div>
       </div>
       <div class="step">
         <div class="step-n"><strong>// 03</strong> · Semana 7–9</div>
-        <div class="step-title">Cadências e automações</div>
-        <div class="step-desc">Fluxos de nutrição, régua de recuperação, mensagens transacionais e A/B tests iniciais. Time treinado para operar.</div>
-        <div class="step-meta">Entregável: 8–12 automações ativas</div>
+        <div class="step-title">Réguas e automações</div>
+        <div class="step-desc">Fluxos de nutrição, e-mail marketing, reengajamento e automações personalizadas por canal. Cada régua desenhada para o seu funil e segmento.</div>
+        <div class="step-meta">Entregável: automações ativas + testes</div>
       </div>
       <div class="step">
         <div class="step-n"><strong>// 04</strong> · Semana 10–12</div>
-        <div class="step-title">Operação e tuning</div>
-        <div class="step-desc">Acompanhamento semanal de KPIs, ajustes nas réguas, ampliação para novas frentes. Handover para time interno ou meu squad.</div>
-        <div class="step-meta">Entregável: dashboard + ritual</div>
+        <div class="step-title">Otimização e análise</div>
+        <div class="step-desc">Acompanhamento de taxas de abertura, cliques, conversão, CAC e ROI. Relatórios com recomendações estratégicas e ajustes contínuos nas réguas.</div>
+        <div class="step-meta">Entregável: dashboard + relatório</div>
       </div>
     </div>
   </div>
@@ -641,24 +646,24 @@
       </div>
       <div class="faq-list">
         <details open>
-          <summary>Vocês são uma agência ou consultoria?</summary>
-          <p>Consultoria solo com squad terceirizado quando precisa. Você fala comigo, não com SDR. Para operação contínua, monto time dedicado de 2 a 4 pessoas.</p>
+          <summary>Você trabalha sozinho ou em equipe?</summary>
+          <p>Trabalho de forma independente, o que garante atendimento direto e personalizado. Você fala comigo em todas as etapas — do diagnóstico à entrega final.</p>
         </details>
         <details>
-          <summary>Quanto custa e como funciona o pagamento?</summary>
-          <p>Projetos a partir de R$ 28k para implementação fechada, ou R$ 8–18k/mês para operação contínua. Pagamento em parcelas vinculadas a entregáveis.</p>
+          <summary>Como funciona a contratação?</summary>
+          <p>Cada projeto tem escopo e valor definidos após o diagnóstico inicial. Trabalho com projetos fechados ou acompanhamento mensal, sempre com entregáveis claros e prazos definidos.</p>
         </details>
         <details>
-          <summary>Trabalham com qual ferramenta?</summary>
-          <p>HubSpot (parceiro Gold), RD Station, Pipedrive e ActiveCampaign. Para automação avançada uso Make, n8n e Zapier. Para e-commerce, conecto Shopify, VTEX e Nuvemshop.</p>
+          <summary>Com quais ferramentas você trabalha?</summary>
+          <p>Sou especialista em RD Station Marketing e RD Station CRM. Também trabalho com Google Analytics, Meta Ads e ferramentas de integração como Make e Zapier.</p>
         </details>
         <details>
-          <summary>Garantem resultado?</summary>
-          <p>Garanto entrega técnica e operação rodando. Resultado depende de mídia, oferta e produto — mas o cliente médio sai com 30 a 90% de aumento de conversão de funil em 90 dias.</p>
+          <summary>Que tipo de resultado posso esperar?</summary>
+          <p>Garanto entrega técnica e operação rodando. Resultado depende de mídia, oferta e produto — mas o foco é sempre em aumento de conversão, redução de CAC e maximização de ROI.</p>
         </details>
         <details>
-          <summary>Atendem fora do Brasil?</summary>
-          <p>Sim, em PT e ES. Já operei projetos em Portugal, México e Chile. Não atendo em inglês.</p>
+          <summary>Atende clientes de qualquer segmento?</summary>
+          <p>Sim. Já desenvolvi estratégias para educação, fitness, automotivo, hotelaria, alimentação e outros — sempre personalizando a abordagem para cada contexto e jornada do cliente.</p>
         </details>
       </div>
     </div>
@@ -671,11 +676,11 @@
     <div>
       <div class="kicker" style="color:var(--ink-50);border-left-color:var(--green-500)">Contato · 30 min</div>
       <h2>Agenda um<br/><span class="accent2">diagnóstico</span><br/>gratuito.</h2>
-      <p class="contact-lead">Em 30 minutos te entrego três prioridades concretas para os próximos 90 dias do seu CRM. Sem comprometimento, sem pitch.</p>
+      <p class="contact-lead">Em 30 minutos entendo sua operação e te entrego recomendações concretas para melhorar seu CRM. Sem compromisso, sem pitch.</p>
       <div class="contact-meta">
-        <div><strong>// E-MAIL</strong>  oi@mailsontomaz.com.br</div>
+        <div><strong>// E-MAIL</strong>  <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58a8ca588848c89968a8b918a88849fcb868a88cb8797">[email&#160;protected]</a></div>
         <div><strong>// WPP</strong>     +55 11 9 9999-9999</div>
-        <div><strong>// SP/BR</strong>   Online · GMT-3</div>
+        <div><strong>// CE/BR</strong>   Fortaleza · Remoto · GMT-3</div>
       </div>
     </div>
     <form class="form" onsubmit="event.preventDefault();alert('Demo — formulário não envia.')">
@@ -732,9 +737,9 @@
       <span class="foot-wordmark">CADÊNCIA<span style="color:var(--green-500)">_</span></span>
       <span class="foot-credit">© 2026 · POR MAILSON TOMAZ</span>
     </div>
-    <div><span class="green">//</span> oi@mailsontomaz.com.br</div>
+    <div><span class="green">//</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f40466f424e46435c40415b40424e55014c4042014d5d">[email&#160;protected]</a></div>
   </div>
 </footer>
 
-</body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
