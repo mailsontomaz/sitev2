@@ -6,7 +6,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Cadência · CRM &amp; Relacionamento</title>
-<link rel="stylesheet" href="styles.css"/>
+<meta name="description" content="Estratégias personalizadas de CRM, réguas de comunicação automatizadas e gestão de funil com foco em engajamento, conversão e retenção."/>
+<link rel="canonical" href="https://cadencia.digital/"/>
+<link rel="stylesheet" href="/styles.css"/>
 <style>
   body { background: var(--ink-50); overflow-x: hidden; }
 
@@ -340,7 +342,7 @@
 
   /* === FOOTER === */
   footer { background: var(--ink-1000); color: var(--ink-300); border-top: 1px solid rgba(255,255,255,0.1); padding: 40px 32px; }
-  .foot-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
+  .foot-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
   .foot-inner .green { color: var(--green-500); }
   .foot-brand {
     display: flex;
@@ -363,6 +365,9 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
+  .foot-inner a { color: var(--ink-300); text-decoration: none; transition: var(--t-hover); }
+  .foot-inner a:hover { color: var(--green-500); }
+  .foot-links { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
 
   /* === RESPONSIVIDADE (MOBILE & TABLET) === */
   @media (max-width: 1023px) {
@@ -377,6 +382,7 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .faq { grid-template-columns: 1fr; gap: 48px; }
     .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .foot-inner { flex-wrap: wrap; gap: 20px; }
   }
 
   @media (max-width: 767px) {
@@ -411,6 +417,7 @@
     footer { padding: 30px 16px; }
     .foot-inner { flex-direction: column; gap: 16px; text-align: center; }
     .foot-brand { flex-direction: column; gap: 8px; justify-content: center; }
+    .foot-links { justify-content: center; }
   }
 
   @media (max-width: 479px) {
@@ -678,7 +685,7 @@
       <h2>Agenda um<br/><span class="accent2">diagnóstico</span><br/>gratuito.</h2>
       <p class="contact-lead">Em 30 minutos entendo sua operação e te entrego recomendações concretas para melhorar seu CRM. Sem compromisso, sem pitch.</p>
       <div class="contact-meta">
-        <div><strong>// E-MAIL</strong>  <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58a8ca588848c89968a8b918a88849fcb868a88cb8797">[email&#160;protected]</a></div>
+        <div><strong>// E-MAIL</strong>  <a href="mailto:oi@mailsontomaz.com.br">oi@mailsontomaz.com.br</a></div>
         <div><strong>// WPP</strong>     +55 11 9 9999-9999</div>
         <div><strong>// CE/BR</strong>   Fortaleza · Remoto · GMT-3</div>
       </div>
@@ -737,9 +744,13 @@
       <span class="foot-wordmark">CADÊNCIA<span style="color:var(--green-500)">_</span></span>
       <span class="foot-credit">© 2026 · POR MAILSON TOMAZ</span>
     </div>
-    <div><span class="green">//</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f40466f424e46435c40415b40424e55014c4042014d5d">[email&#160;protected]</a></div>
+    <div class="foot-links">
+      <a href="/privacidade">Privacidade</a>
+      <a href="/termos">Termos de Uso</a>
+      <span><span class="green">//</span> <a href="mailto:oi@mailsontomaz.com.br">oi@mailsontomaz.com.br</a></span>
+    </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</body>
 </html>
