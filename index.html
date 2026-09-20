@@ -686,29 +686,28 @@
       <p class="contact-lead">Em 30 minutos entendo sua operação e te entrego recomendações concretas para melhorar seu CRM. Sem compromisso, sem pitch.</p>
       <div class="contact-meta">
         <div><strong>// E-MAIL</strong>  <a href="mailto:oi@mailsontomaz.com.br">oi@mailsontomaz.com.br</a></div>
-        <div><strong>// WPP</strong>     +55 11 9 9999-9999</div>
         <div><strong>// CE/BR</strong>   Fortaleza · Remoto · GMT-3</div>
       </div>
     </div>
-    <form class="form" onsubmit="event.preventDefault();alert('Demo — formulário não envia.')">
+    <form class="form">
       <div class="field">
         <label>Empresa</label>
-        <input type="text" placeholder="Razão social" value="Casa Verde Decor" required/>
+        <input type="text" name="empresa" placeholder="Razão social" required/>
       </div>
       <div class="row2">
         <div class="field">
           <label>Seu nome</label>
-          <input type="text" placeholder="Nome completo" value="Ana Silva"/>
+          <input type="text" name="nome" placeholder="Nome completo"/>
         </div>
         <div class="field">
           <label>E-mail</label>
-          <input type="email" placeholder="voce@empresa.com.br" value="ana@casaverde.com.br"/>
+          <input type="email" name="email" placeholder="voce@empresa.com.br"/>
         </div>
       </div>
       <div class="row2">
         <div class="field">
           <label>Faturamento mensal</label>
-          <select>
+          <select name="faturamento">
             <option>Até R$ 100k</option>
             <option selected>R$ 100k – 500k</option>
             <option>R$ 500k – 2M</option>
@@ -717,7 +716,7 @@
         </div>
         <div class="field">
           <label>Ferramenta atual</label>
-          <select>
+          <select name="ferramenta">
             <option>Sem CRM</option>
             <option selected>RD Station</option>
             <option>HubSpot</option>
@@ -727,13 +726,43 @@
       </div>
       <div class="field">
         <label>O que está travando o funil?</label>
-        <textarea rows="3" placeholder="Em poucas linhas...">Estou perdendo lead entre o cadastro e a primeira compra. Quero entender onde está o vazamento.</textarea>
+        <textarea name="mensagem" rows="3" placeholder="Em poucas linhas..."></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top:8px;justify-content:center">
         Quero o diagnóstico
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </form>
+    <!-- TODO(n8n): substituir o mailto por fetch POST para
+         https://webh.cadencia.digital/webhook/<id-do-form> quando o workflow estiver ativo -->
+    <script>
+      (function() {
+        var form = document.querySelector('form.form');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var fd = new FormData(form);
+          var empresa = (fd.get('empresa') || '').trim();
+          var nome = (fd.get('nome') || '').trim();
+          var email = (fd.get('email') || '').trim();
+          var faturamento = (fd.get('faturamento') || '').trim();
+          var ferramenta = (fd.get('ferramenta') || '').trim();
+          var mensagem = (fd.get('mensagem') || '').trim();
+
+          var subject = 'Diagnóstico — ' + empresa;
+          var body = [
+            'Empresa: ' + empresa,
+            'Nome: ' + nome,
+            'E-mail: ' + email,
+            'Faturamento: ' + faturamento,
+            'Ferramenta: ' + ferramenta,
+            'Mensagem: ' + mensagem
+          ].join('\r\n');
+
+          window.location.href = 'mailto:oi@mailsontomaz.com.br?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        });
+      })();
+    </script>
   </div>
 </section>
 
